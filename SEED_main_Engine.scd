@@ -16,35 +16,37 @@ Sound Engine Embellishment Designer
 //C C# D D# E F F# G G# A A# B
 // lin lin
 
+(
+~f = { |input|
+	var root;
+	root = input.size;
+	root = ~root.linlin(0, 100, 60, 71).asInteger;
+}
+)
 
-~root = 80;
-~root = ~root.linlin(0, 100, 60, 71)
-
-
+~root = ~f.("Hello World");
 /* define the scale */
 
 //(this could be a dictionary)
 
 // use mod to pick a scale from the lenght of the string
 // something like: length of string mod 8 (if using 7 scales)
+(
 ~scales = Dictionary();
-~scales.put(0, [0, 2, 4, 5, 7, 9, 11, 12]); // aeolian
-~scales.put(1, [0, 2, 3, 5, 7, 9, 10, 12]); // dorian
-~scales.put(2, [0, 2, 3, 5, 7, 9, 10, 12]); // TBD
-~scales.put(3, [0, 2, 3, 5, 7, 9, 10, 12]); // TBD
-~scales.put(4, [0, 2, 3, 5, 7, 9, 10, 12]); // TBD
-~scales.put(5, [0, 2, 3, 5, 7, 9, 10, 12]); // TBD
-~scales.put(6, [0, 2, 3, 5, 7, 9, 10, 12]); // TBD
-~scales.put(7, [0, 2, 3, 5, 7, 9, 10, 12]); // TBD
-
+~scales.put(0, [0, 2, 4, 5, 7, 9, 11, 12]); // ionian
+~scales.put(1, [0, 2, 3, 5, 7, 9, 10, 12]); // dorian: flat three and flat seven
+~scales.put(2, [0, 1, 3, 5, 7, 8, 10, 12]); // phrygian: flat two, flat three, flat six and flat seven
+~scales.put(3, [0, 2, 4, 6, 7, 9, 11, 12]); // lydian: sharp 4
+~scales.put(4, [0, 2, 4, 5, 7, 9, 10, 12]); // mixolydian: flat seven
+~scales.put(5, [0, 2, 3, 5, 7, 8, 10, 12]); // aeolian: flat three, flat six and flat seven
+~scales.put(6, [0, 1, 3, 5, 6, 8, 10, 12]); // locrian: flat two, flat three, flat five, flat six and flat seven
+)
 // use array, and modify relative to the base scale
 
-~aeolian = [0, 2, 4, 5, 7, 9, 11, 12];
-~dorian = ~aeolian.copy;
-~dorian.put(2, ~dorian[2]-1);
-~aeolian;
 
-})
+~scales.choose.choose + ~root;
+
+
 ~array[1];
 
 // how many notes (events) are going to be played
@@ -63,10 +65,11 @@ Sound Engine Embellishment Designer
       //reverb
 
 
-
+/* octaves: how wide does that composition need to be? */
 
 t = TempoClock(112/60);
 
+s.boot;
 (
 Pbind(
 	\dur, 1/4,
@@ -78,4 +81,4 @@ Pbind(
 ).play(t);
 )
 
-125% 8
+
