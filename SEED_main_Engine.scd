@@ -8,20 +8,39 @@ Sound Engine Embellishment Designer
 
 
 (
+"**************************".postln;
+/* hardcoded input */
+~input = "H e l l o W o r l d";
 
-// hardcoded input
-~input = "Test";
+/* define the rythm */
+// how many notes (events) are going to be played
+    // notes to rests ratio
+    // count the char vs spaces, chars are notes, spaces are rests
+
+~chars = 0;
+~spaces = 0;
+~upper = 0;
+~lower = 0;
+~asciiSum = 0;
+
+~input.do({ |char|
+	if(
+		char.asString == " ",
+		{~spaces = ~spaces +1},
+		{~chars = ~chars + 1}
+
+	);
+	~asciiSum = ~asciiSum + char.ascii;
+});
+
+("number of chars: " ++ ~chars).postln;
+("number of spaces: " ++ ~spaces).postln;
+("ascii sum of characters: " ++~asciiSum).postln;
 
 /*  define the root */
-//C C# D D# E F F# G G# A A# B
-~defineRoot = {
-	var root;
-	root = ~input.size.linlin(0, 100, 60, 71).asInteger;
-};
 
-
-~root = ~defineRoot.();
-~rootMessage = "The root is: " ++ ~root.midinote.asString;
+~root = ~input.size.linlin(0, 100, 60, 71).asInteger;
+~rootMessage = "selected root is: " ++ ~root.midinote.asString;
 ~rootMessage.postln;
 
 /* define the scale */
@@ -41,47 +60,55 @@ Sound Engine Embellishment Designer
 ~scales.put(6, ["Locrian", 0, 1, 3, 5, 6, 8, 10]); // locrian: flat two, flat three, flat five, flat six and flat seven
 
 
-~scale = ~scales[~input.size%~scales.size];
-~scaleMessage = "Selected scale is: " ++ ~scale[0];
+~scale = ~scales[~asciiSum %~scales.size];
+~scaleMessage = "selected scale is: " ++ ~scale[0];
 ~scaleMessage.postln;
+
 /* define the tempo */
-//
+~tempo = ~input.size.linlin(0, 100, 100, 120).asInteger;
+~tempoMessage = "selected tempo is: " ++ ~tempo ++" bpm";
+~tempoMessage.postln;
 
-(~scale[1] + ~root).midinote;
-
+"**************************".postln;\
 )
 
-// how many notes (events) are going to be played
 
-/* define the rythm */
-    // notes to rests ratio
-    // count the chars vs the spaces and determine
-
-
-/* create the sound */
+/* design the sound */
 // (couple of synthesizers)
 
-/* detune ? */
+
 
 /* fx? */
-      //delay
-      //reverb
-
+      /* detune ? */
+      // delay adding a slash to the text?
+      // reverb  adding an asterisk to the text?
 
 /* octaves: how wide does that composition need to be? */
 
-t = TempoClock(112/60);
 
-s.boot;
+
 (
+t = TempoClock(~tempo/60);
+
+SynthDef(\test,{
+	arg freq, amp;
+	var sig;
+	sig = SinOsc.ar(freq) * Line.kr(0.1, 0, 1,2, doneAction: 2);
+	sig = sig !2;
+	Out.ar(0, sig * amp);
+}).add;
+[~chars, ~spaces].normalizeSum.postln;
 Pbind(
-	\dur, 1/4,
+	\instrument, \test,
+	\dur, Pwrand([Prand([1/4, 1/2], ~input.size), Prand([Rest(1/4), Rest(1/2)], ~input.size)], [~chars, ~spaces].normalizeSum, inf).trace,//Prand([1/4, 1/2, Rest(1/4), Rest(1/2)], ~input.size ).trace,
+	\amp, Pwhite(0.2, 0.8, ~input.size),
 	\sustain,  0.1,
-	\degree, Pseq([
-		\,4,\,5,\,7,\,4,
-		5,\,7,\,8,\,\,\
-	]),
+	\note,
+		Pwrand(~scale[1..7],[10,5,5,5,10,5,5].normalizeSum, ~input.size),
+
 ).play(t);
 )
+
+
 
 
