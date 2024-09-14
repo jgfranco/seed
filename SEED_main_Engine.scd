@@ -10,7 +10,7 @@ Sound Engine Embellishment Designer
 (
 "**************************".postln;
 /* hardcoded input */
-~input = "H e l l o W o r l d";
+~input = "Hello World";
 
 /* define the rythm */
 // how many notes (events) are going to be played
@@ -97,16 +97,21 @@ SynthDef(\test,{
 	sig = sig !2;
 	Out.ar(0, sig * amp);
 }).add;
+
 [~chars, ~spaces].normalizeSum.postln;
-Pbind(
+
+p = Pbind(
 	\instrument, \test,
-	\dur, Pwrand([Prand([1/4, 1/2], ~input.size), Prand([Rest(1/4), Rest(1/2)], ~input.size)], [~chars, ~spaces].normalizeSum, inf).trace,//Prand([1/4, 1/2, Rest(1/4), Rest(1/2)], ~input.size ).trace,
-	\amp, Pwhite(0.2, 0.8, ~input.size),
+	\type, Pwrand([\note, \rest], [~chars, ~spaces].normalizeSum, inf),
+	\dur, Pwrand([1/4, 1/2, 1],[6,3,1].normalizeSum, inf ).trace,
+	\amp, Pwhite(0.2, 0.8, inf),
 	\sustain,  0.1,
 	\note,
-		Pwrand(~scale[1..7],[10,5,5,5,10,5,5].normalizeSum, ~input.size),
+		Pwrand(~scale[1..7],[10,5,10,5,10,5,5].normalizeSum, inf),
 
-).play(t);
+);
+q = Pfin(~input.size, p);
+~seq = q.play;
 )
 
 
