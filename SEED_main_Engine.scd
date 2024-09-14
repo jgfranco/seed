@@ -66,15 +66,25 @@ Sound Engine Embellishment Designer
 
 /* define the tempo */
 ~tempo = ~input.size.linlin(0, 100, 100, 120).asInteger;
+t = TempoClock(~tempo/60);
 ~tempoMessage = "selected tempo is: " ++ ~tempo ++" bpm";
 ~tempoMessage.postln;
+
+/* design the sound */
+// (couple of synthesizers)
+
+SynthDef(\test,{
+	arg freq, amp;
+	var sig;
+	sig = SinOsc.ar(freq) * Line.kr(0.1, 0, 1,2, doneAction: 2);
+	sig = sig !2;
+	Out.ar(0, sig * amp);
+}).add;
+
 
 "**************************".postln;\
 )
 
-
-/* design the sound */
-// (couple of synthesizers)
 
 
 
@@ -88,26 +98,14 @@ Sound Engine Embellishment Designer
 
 
 (
-t = TempoClock(~tempo/60);
-
-SynthDef(\test,{
-	arg freq, amp;
-	var sig;
-	sig = SinOsc.ar(freq) * Line.kr(0.1, 0, 1,2, doneAction: 2);
-	sig = sig !2;
-	Out.ar(0, sig * amp);
-}).add;
-
-[~chars, ~spaces].normalizeSum.postln;
-
 p = Pbind(
 	\instrument, \test,
 	\type, Pwrand([\note, \rest], [~chars, ~spaces].normalizeSum, inf),
-	\dur, Pwrand([1/4, 1/2, 1],[6,3,1].normalizeSum, inf ).trace,
+	\dur, Pwrand([1/4, 1/2, 1/6, 1/8],[4,3,2,1].normalizeSum, inf ).trace,
 	\amp, Pwhite(0.2, 0.8, inf),
 	\sustain,  0.1,
 	\note,
-		Pwrand(~scale[1..7],[10,5,10,5,10,5,5].normalizeSum, inf),
+		Pxrand(~scale[1..7], inf),
 
 );
 q = Pfin(~input.size, p);
