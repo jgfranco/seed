@@ -16,26 +16,26 @@ Consonants can be divided into soft, resonant sounds (like nasals or liquids) an
 ### Plosives (Sharp, Abrupt Sounds)
 These consonants are more aligned with the takete side of the spectrum because of their hard, angular nature.
 
-Letter	Phonetic Property	Sound Symbolism (Maluma/Takete)	Assigned Shape/Value
-B	Voiced bilabial plosive	Somewhat soft, but plosive	Angular curve, 4
-P	Voiceless bilabial plosive	Hard, abrupt (Takete-like)	Sharp angle, 6
-D	Voiced dental/alveolar plosive	Hard, but voiced so less sharp	Square, 5
-T	Voiceless dental/alveolar plosive	Hard, sharp (Takete-like)	Triangle, 7
-K	Voiceless velar plosive	Sharp, very hard (Takete-like)	Triangle, 9
-G	Voiced velar plosive	Less sharp, voiced version of "k"	Square, 5
+| Letter | Phonetic Property	| Sound Symbolism (Maluma/Takete)	| Assigned Shape/Value
+| B |	Voiced bilabial plosive	| Somewhat soft, but plosive | Angular curve, 4
+| P |	Voiceless bilabial plosive	| Hard, abrupt (Takete-like) |	Sharp angle, 6
+| D |	Voiced dental/alveolar plosive	| Hard, but voiced so less sharp |	Square, 5
+| T |	Voiceless dental/alveolar plosive |	Hard, sharp (Takete-like) |	Triangle, 7
+| K |	Voiceless velar plosive |	Sharp, very hard (Takete-like)	| Triangle, 9
+| G |	Voiced velar plosive | Less sharp, voiced version of "k"	| Square, 5
 
 ### Fricatives (Continuous, Some Sharp, Some Soft)
 Fricatives involve continuous airflow, and their sharpness depends on whether they are voiced or voiceless.
 
 |Letter |	Phonetic Property |	Sound Symbolism (Maluma/Takete)	| Assigned Shape/Value
 |---|---|---|---|
-|F |	Voiceless labiodental fricative | Sharp, flowing (Takete-like) | Zigzag, 7
-|V |	Voiced labiodental fricative |	Softer, less sharp	| Soft curve, 3
-|S |	Voiceless alveolar fricative |	Sharp, hissing (Takete-like)	| Jagged line, 8
-|Z |	Voiced alveolar fricative |	Softer, continuous sound |	S-shaped curve, 4
-|H |	Voiceless glottal fricative |	Breath-like, soft	| Soft wave, 2
-|TH | (voiceless)	Voiceless dental fricative |	Slightly sharp, continuous (Takete-like) | Zigzag, 6
-|TH | (voiced)	Voiced dental fricative |	Softer, less sharp	| Gentle wave, 3
+| F |	Voiceless labiodental fricative | Sharp, flowing (Takete-like) | Zigzag, 7
+| V |	Voiced labiodental fricative |	Softer, less sharp	| Soft curve, 3
+| S |	Voiceless alveolar fricative |	Sharp, hissing (Takete-like)	| Jagged line, 8
+| Z |	Voiced alveolar fricative |	Softer, continuous sound |	S-shaped curve, 4
+| H |	Voiceless glottal fricative |	Breath-like, soft	| Soft wave, 2
+| TH | (voiceless)	Voiceless dental fricative |	Slightly sharp, continuous (Takete-like) | Zigzag, 6
+| TH | (voiced)	Voiced dental fricative |	Softer, less sharp	| Gentle wave, 3
 
 ### Nasals (Soft, Rounded Sounds)
 Nasals are typically resonant and soft, making them more aligned with maluma.
