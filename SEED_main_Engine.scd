@@ -10,7 +10,7 @@ Sound Engine Embellishment Designer
 (
 "**************************".postln;
 /* hardcoded input */
-~input = "Hello World";
+~input = "HelloWorld";
 
 /* define the rythm */
 // how many notes (events) are going to be played
@@ -73,10 +73,15 @@ t = TempoClock(~tempo/60);
 /* design the sound */
 // (couple of synthesizers)
 
+// soft letters: abcdefghijklmnopqrstu
+// hard letters: vwxyz
+
+
 SynthDef(\test,{
 	arg freq, amp;
 	var sig;
 	sig = SinOsc.ar(freq) * Line.kr(0.1, 0, 1,2, doneAction: 2);
+
 	sig = sig !2;
 	Out.ar(0, sig * amp);
 }).add;
@@ -96,12 +101,12 @@ SynthDef(\test,{
 /* octaves: how wide does that composition need to be? */
 
 
-
+s.boot;
 (
 p = Pbind(
 	\instrument, \test,
-	\type, Pwrand([\note, \rest], [~chars, ~spaces].normalizeSum, inf),
-	\dur, Pwrand([1/4, 1/2, 1/6, 1/8],[4,3,2,1].normalizeSum, inf ).trace,
+	\type, Pwrand([\note, \rest], [~chars, ~spaces].normalizeSum, inf).trace,
+	\dur, Pwrand([1/4, 1/2, 1/6, 1/8],[4,3,2,1].normalizeSum, inf ),
 	\amp, Pwhite(0.2, 0.8, inf),
 	\sustain,  0.1,
 	\note,
@@ -113,5 +118,4 @@ q = Pfin(~input.size, p);
 )
 
 
-
-
+1.notemidi.midicps;
