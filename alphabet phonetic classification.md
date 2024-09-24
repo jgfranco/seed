@@ -3,12 +3,13 @@ Classification of the alphabet based on the phonetic properties of each letter a
 ## Vowels:
 Vowels are often perceived as softer and more rounded, especially rounded vowels like "o" and "u". However, some vowels are more open or sharper, like "a" or "i".
 
-Letter	Phonetic Property	Sound Symbolism (Maluma/Takete)	Assigned Shape/Value
-A	Open front vowel	Broad, open (Maluma-like)	Circle, 1
-E	Mid front vowel	Less open, slightly sharper	Oval, 2
-I	Close front vowel	Sharp, focused (Takete-like)	Sharp angle, 7
-O	Close-mid back rounded vowel	Round, soft (Maluma-like)	Full circle, 0
-U	Close back rounded vowel	Round, soft (Maluma-like)	Oval, 1
+| Letter | Phonetic Property	| Sound Symbolism (Maluma/Takete)	| Assigned Shape/Value |
+|---|---|---|---|
+| A	| Open front vowel | Broad, open (Maluma-like) | Circle, 1 |
+| E	| Mid front vowel	| Less open, slightly sharper	| Oval, 2 |
+| I	| Close front vowel	| Sharp, focused (Takete-like) | Sharp angle, 7 |
+| O	| Close-mid back rounded vowel | Round, soft (Maluma-like) | Full circle, 0 |
+| U |	Close back rounded vowel | Round, soft (Maluma-like) | Oval, 1 |
 
 ## Consonants:
 Consonants can be divided into soft, resonant sounds (like nasals or liquids) and sharp, abrupt sounds (like plosives or fricatives).
