@@ -17,6 +17,7 @@ Consonants can be divided into soft, resonant sounds (like nasals or liquids) an
 These consonants are more aligned with the takete side of the spectrum because of their hard, angular nature.
 
 | Letter | Phonetic Property	| Sound Symbolism (Maluma/Takete)	| Assigned Shape/Value
+|---|---|---|---|
 | B |	Voiced bilabial plosive	| Somewhat soft, but plosive | Angular curve, 4
 | P |	Voiceless bilabial plosive	| Hard, abrupt (Takete-like) |	Sharp angle, 6
 | D |	Voiced dental/alveolar plosive	| Hard, but voiced so less sharp |	Square, 5
